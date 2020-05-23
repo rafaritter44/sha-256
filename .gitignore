@@ -2,3 +2,6 @@
 .gradle/
 .project
 .settings/
+bin/
+build/
+*.mp4

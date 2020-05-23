@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -8,3 +9,14 @@ repositories {
 }
 
 dependencies {}
+
+mainClassName = 'com.github.rafaritter44.security.sha256.Main'
+
+jar {
+	manifest {
+		attributes 'Main-Class': mainClassName
+	}
+	from {
+		configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+}
